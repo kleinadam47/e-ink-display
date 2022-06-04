@@ -28,6 +28,7 @@ try:
     font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
     font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 
+    # open quote csv and choose a random row
     quote_csv_file = open(os.path.join(quotesdir, 'quotes.csv'))
     quote_csv_reader = csv.reader(quote_csv_file)
     random_row = random.choice(list(quote_csv_reader))
@@ -51,9 +52,38 @@ try:
         author = "Unknown"
     draw.text((0, 400), author, font = font48, fill = 0)
     
+    # display
     epd.display(epd.getbuffer(Qimage))
-    time.sleep(10)
+    time.sleep(2)
+
+
+    # print quote 2
+    vertical = 10
+    printed_character = 0
+    while printed_character <= len(random_row[-1]):
+        if len(random_row[-1]) - printed_character > 28:
+            end = printed_character + 28
+            while random_row[-1][end] != " ":
+                end -= 1
+            current_line = random_row[-1][printed_character:end]
+            printed_character = end
+        else:
+            current_line = random_row[-1][printed_character:]
+        
+        draw.text((0, vertical), current_line, font = font48, fill = 0)
+        vertical += 60
+
+    # print author
+    author = random_row[0]
+    if author == "":
+        author = "Unknown"
+    draw.text((0, 400), author, font = font48, fill = 0)
     
+    # display
+    epd.display(epd.getbuffer(Qimage))
+    time.sleep(2)
+
+
     # Drawing on the Horizontal image
     logging.info("1.Drawing on the Horizontal image...")
     Himage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
