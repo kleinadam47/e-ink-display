@@ -44,7 +44,7 @@ try:
         current_line = random_row[-1][start:end]
         draw.text((vertical, 0), current_line, font = font48, fill = 0)
         num_rows += 1
-        vertical += 48
+        vertical += 100
 
     if len(random_row) == 2:
         author = random_row[0]
