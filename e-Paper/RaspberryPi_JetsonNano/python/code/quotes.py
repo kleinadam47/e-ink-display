@@ -25,14 +25,21 @@ try:
     epd.init()
     # epd.Clear()
     
+    font48 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 48)
     font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
     font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 
     quote_csv_file = open(os.path.join(quotesdir, 'quotes.csv'))
     quote_csv_reader = csv.reader(quote_csv_file)
     random_row = random.choice(list(quote_csv_reader))
-    logging.info(random_row)
-
+    
+    logging.info("Writing quote...")
+    # TODO: remove this True
+    if len(random_row) == 1 or True:
+        Qimage = Image.new(1, (epd.width, epd.height), 255)
+        draw = ImageDraw.Draw(Qimage)
+        draw.text((10, 0), random_row[0], font = font48, fill = 0)
+        time.sleep(10)
     
     # Drawing on the Horizontal image
     logging.info("1.Drawing on the Horizontal image...")
@@ -51,9 +58,6 @@ try:
     draw.chord((200, 50, 250, 100), 0, 360, fill = 0)
     epd.display(epd.getbuffer(Himage))
     time.sleep(2)
-
-    logging.info("Clear...")
-    epd.Clear()
     
     logging.info("Goto Sleep...")
     epd.sleep()
