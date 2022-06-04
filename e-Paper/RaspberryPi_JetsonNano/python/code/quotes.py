@@ -36,7 +36,7 @@ try:
     logging.info("Writing quote...")
     # TODO: remove this True
     if len(random_row) == 1 or True:
-        Qimage = Image.new(1, (epd.width, epd.height), 255)
+        Qimage = Image.new('1', (epd.width, epd.height), 255)
         draw = ImageDraw.Draw(Qimage)
         draw.text((10, 0), random_row[0], font = font48, fill = 0)
         time.sleep(10)
