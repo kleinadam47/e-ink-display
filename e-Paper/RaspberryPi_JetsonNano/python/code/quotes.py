@@ -38,7 +38,7 @@ try:
 
     vertical = 10
     num_rows = 0
-    while (len(random_row[-1])*(num_rows+1))/28 > 1:
+    while (len(random_row[-1])/((num_rows+1)*28)) > 1:
         start = num_rows * 28
         end = start + 27
         current_line = random_row[-1][start:end]
