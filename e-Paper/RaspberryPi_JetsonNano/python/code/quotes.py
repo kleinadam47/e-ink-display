@@ -25,7 +25,7 @@ try:
     epd.init()
     # epd.Clear()
     
-    font48 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 48)
+    font48 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
     font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
     font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 
@@ -42,7 +42,7 @@ try:
         author = random_row[0]
     else:
         author = "Unknown"
-    draw.text((0, 300), author, font = font48, fill = 0)
+    draw.text((0, 0), author, font = font48, fill = 0)
     
     epd.display(epd.getbuffer(Qimage))
     time.sleep(10)
