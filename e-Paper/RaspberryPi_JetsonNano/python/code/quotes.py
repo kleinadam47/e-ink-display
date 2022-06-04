@@ -45,6 +45,7 @@ try:
         draw.text((0, vertical), current_line, font = font48, fill = 0)
         num_rows += 1
         vertical += 60
+        start = num_rows * 28
 
     if len(random_row) == 2:
         author = random_row[0]
