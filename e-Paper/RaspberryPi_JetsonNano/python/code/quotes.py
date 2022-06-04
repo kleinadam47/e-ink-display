@@ -39,6 +39,7 @@ try:
     Qimage = Image.new('1', (epd.width, epd.height), 255)
     draw = ImageDraw.Draw(Qimage)
     draw.text((10, 0), random_row[0], font = font48, fill = 0)
+    epd.display(epd.getbuffer(Qimage))
     time.sleep(10)
     
     # Drawing on the Horizontal image
