@@ -36,6 +36,7 @@ try:
     Qimage = Image.new('1', (epd.width, epd.height), 255)
     draw = ImageDraw.Draw(Qimage)
 
+    # print quote
     vertical = 10
     num_rows = 0
     while num_rows*28 <= len(random_row[-1]):
@@ -44,9 +45,9 @@ try:
         num_rows += 1
         vertical += 60
 
-    if len(random_row) == 2:
-        author = random_row[0]
-    else:
+    # print author
+    author = random_row[0]
+    if author == "":
         author = "Unknown"
     draw.text((0, 400), author, font = font48, fill = 0)
     
