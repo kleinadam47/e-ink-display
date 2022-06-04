@@ -51,7 +51,7 @@ try:
             current_line = random_row[-1][printed_character:]
         
         draw.text((0, vertical), current_line, font = font48, fill = 0)
-        printed_character = end
+        printed_character = end + 1
         vertical += 60
 
     # print author
