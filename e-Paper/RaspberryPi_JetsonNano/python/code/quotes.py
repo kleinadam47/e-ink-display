@@ -42,7 +42,7 @@ try:
         author = random_row[0]
     else:
         author = "Unknown"
-    draw.text((0, 500), author, font = font48, fill = 0)
+    draw.text((0, 300), author, font = font48, fill = 0)
     
     epd.display(epd.getbuffer(Qimage))
     time.sleep(10)
