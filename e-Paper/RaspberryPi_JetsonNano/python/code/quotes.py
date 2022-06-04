@@ -28,7 +28,7 @@ try:
     font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
     font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 
-    quote_csv_file = open(os.path.join(quotesdir))
+    quote_csv_file = open(os.path.join(quotesdir, 'quotes.csv'))
     quote_csv_reader = csv.reader(quote_csv_file)
     random_row = random.choice(list(quote_csv_reader))
     logging.info(random_row)
