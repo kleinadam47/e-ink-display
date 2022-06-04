@@ -42,7 +42,6 @@ try:
         start = num_rows * 28
         end = start + 28
         current_line = random_row[start:end]
-        logging.DEBUG(f"current_line: {current_line}")
         draw.text((vertical, 0), current_line, font = font48, fill = 0)
         num_rows += 1
         vertical += 48
