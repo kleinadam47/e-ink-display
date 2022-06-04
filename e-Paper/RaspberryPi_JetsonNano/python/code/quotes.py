@@ -39,7 +39,8 @@ try:
     vertical = 10
     num_rows = 0
     while (len(random_row[-1])*(num_rows+1))/28 > 1:
-        draw.text((vertical, 0), random_row[(num_rows*28):(num_rows*28+28)], font = font48, fill = 0)
+        current_line = random_row[(num_rows*28):(num_rows*28+28)]
+        draw.text((vertical, 0), current_line, font = font48, fill = 0)
         num_rows += 1
         vertical += 48
 
