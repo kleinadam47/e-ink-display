@@ -34,8 +34,8 @@ try:
     random_row = random.choice(list(quote_csv_reader))
     
     logging.info("Writing quote...")
-    Qimage = Image.new('1', (epd.width, epd.height), 255)
-    draw = ImageDraw.Draw(Qimage)
+    Q1image = Image.new('1', (epd.width, epd.height), 255)
+    draw = ImageDraw.Draw(Q1image)
 
     # print quote
     vertical = 10
@@ -53,11 +53,14 @@ try:
     draw.text((0, 400), author, font = font48, fill = 0)
     
     # display
-    epd.display(epd.getbuffer(Qimage))
+    epd.display(epd.getbuffer(Q1image))
     time.sleep(2)
 
 
     # print quote 2
+
+    Q2image = Image.new('1', (epd.width, epd.height), 255)
+    draw = ImageDraw.Draw(Q2image)
     vertical = 10
     printed_character = 0
     while printed_character <= len(random_row[-1]):
@@ -81,7 +84,7 @@ try:
     draw.text((0, 400), author, font = font48, fill = 0)
     
     # display
-    epd.display(epd.getbuffer(Qimage))
+    epd.display(epd.getbuffer(Q2image))
     time.sleep(2)
 
 
