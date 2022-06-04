@@ -38,14 +38,11 @@ try:
 
     vertical = 10
     num_rows = 0
-    start = num_rows * 28
-    end = start + 28
-    while start < len(random_row[-1]):
-        current_line = random_row[-1][start:end]
+    while num_rows*28 <= len(random_row[-1]):
+        current_line = random_row[-1][num_rows*28:(num_rows*28)+28]
         draw.text((0, vertical), current_line, font = font48, fill = 0)
         num_rows += 1
         vertical += 60
-        start = num_rows * 28
 
     if len(random_row) == 2:
         author = random_row[0]
