@@ -25,7 +25,7 @@ try:
     epd.init()
     # epd.Clear()
     
-    font48 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 48) 
+    font48 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 48)
     font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
     font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 
