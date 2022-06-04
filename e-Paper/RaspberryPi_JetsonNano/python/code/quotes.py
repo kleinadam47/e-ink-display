@@ -66,12 +66,12 @@ try:
             while random_row[-1][end] != " ":
                 end -= 1
             current_line = random_row[-1][printed_character:end]
-            printed_character = end
         else:
+            end = printed_character + 28
             current_line = random_row[-1][printed_character:]
-            printed_character += 28
         
         draw.text((0, vertical), current_line, font = font48, fill = 0)
+        printed_character = end
         vertical += 60
 
     # print author
