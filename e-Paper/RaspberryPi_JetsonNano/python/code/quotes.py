@@ -25,7 +25,7 @@ try:
     epd.init()
     # epd.Clear()
     
-    font48 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 48)
+    font48 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 48) 
     font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
     font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 
@@ -36,7 +36,13 @@ try:
     logging.info("Writing quote...")
     Qimage = Image.new('1', (epd.width, epd.height), 255)
     draw = ImageDraw.Draw(Qimage)
-    draw.text((10, 0), random_row[-1], font = font48, fill = 0)
+
+    vertical = 10
+    num_rows = 0
+    while (len(random_row[-1])*(num_rows+1))/28 > 1:
+        draw.text((vertical, 0), random_row[num_rows*28:(num_rows*28) + 28], font = font48, fill = 0)
+        num_rows += 1
+        vertical += 48
 
     if len(random_row) == 2:
         author = random_row[0]
