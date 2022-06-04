@@ -39,7 +39,9 @@ try:
     draw.text((10, 0), random_row[-1], font = font48, fill = 0)
 
     if len(random_row) == 2:
-        draw.text((0, 800), random_row[0], font = font48, fill = 0)
+        draw.text((0, 600), random_row[0], font = font48, fill = 0)
+    else:
+        draw.text((0, 600), "Unknown", font = font48, fill = 0)
     epd.display(epd.getbuffer(Qimage))
     time.sleep(10)
     
