@@ -58,7 +58,7 @@ try:
     author = random_row[0]
     if author == "":
         author = "Unknown"
-    draw.text((0, 400), author, font = font48, fill = 0)
+    draw.text((0, 420), author, font = font48, fill = 0)
     
     # display
     epd.display(epd.getbuffer(Qimage))
