@@ -34,33 +34,10 @@ try:
     random_row = random.choice(list(quote_csv_reader))
     
     logging.info("Writing quote...")
-    Q1image = Image.new('1', (epd.width, epd.height), 255)
-    draw = ImageDraw.Draw(Q1image)
-
-    # print quote
-    vertical = 10
-    num_rows = 0
-    while num_rows*28 <= len(random_row[-1]):
-        current_line = random_row[-1][num_rows*28:(num_rows*28)+28]
-        draw.text((0, vertical), current_line, font = font48, fill = 0)
-        num_rows += 1
-        vertical += 60
-
-    # print author
-    author = random_row[0]
-    if author == "":
-        author = "Unknown"
-    draw.text((0, 400), author, font = font48, fill = 0)
+    Qimage = Image.new('1', (epd.width, epd.height), 255)
+    draw = ImageDraw.Draw(Qimage)
     
-    # display
-    epd.display(epd.getbuffer(Q1image))
-    time.sleep(2)
-
-
-    # print quote 2
-
-    Q2image = Image.new('1', (epd.width, epd.height), 255)
-    draw = ImageDraw.Draw(Q2image)
+    # print quote
     vertical = 10
     printed_character = 0
     while printed_character <= len(random_row[-1]):
@@ -84,27 +61,7 @@ try:
     draw.text((0, 400), author, font = font48, fill = 0)
     
     # display
-    epd.display(epd.getbuffer(Q2image))
-    time.sleep(2)
-
-
-    # Drawing on the Horizontal image
-    logging.info("1.Drawing on the Horizontal image...")
-    Himage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
-    draw = ImageDraw.Draw(Himage)
-    draw.text((10, 0), 'hello world', font = font24, fill = 0)
-    draw.text((10, 20), '5.83inch e-Paper', font = font24, fill = 0)
-    draw.text((150, 0), u'微雪电子', font = font24, fill = 0)    
-    draw.line((20, 50, 70, 100), fill = 0)
-    draw.line((70, 50, 20, 100), fill = 0)
-    draw.rectangle((20, 50, 70, 100), outline = 0)
-    draw.line((165, 50, 165, 100), fill = 0)
-    draw.line((140, 75, 190, 75), fill = 0)
-    draw.arc((140, 50, 190, 100), 0, 360, fill = 0)
-    draw.rectangle((80, 50, 130, 100), fill = 0)
-    draw.chord((200, 50, 250, 100), 0, 360, fill = 0)
-    epd.display(epd.getbuffer(Himage))
-    time.sleep(2)
+    epd.display(epd.getbuffer(Qimage))
     
     logging.info("Goto Sleep...")
     epd.sleep()
